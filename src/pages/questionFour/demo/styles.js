@@ -34,6 +34,32 @@ const useStyles = makeStyles(theme => ({
       padding: 20,
       paddingBottom: 0,
       textAlign: 'left'
+    },
+    form: {
+      marginBottom: 20
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 200,
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120
+    },
+    select: {
+        width: 160
+    },
+    box: {
+        display: 'flex'
+    },
+    buttonContainer: {
+        display: 'flex'
+    },
+    button: {
+        display: 'block',
+        marginTop: 20,
+        marginRight: 5
     }
 }));
 // -- END STYLES

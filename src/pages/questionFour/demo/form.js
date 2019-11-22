@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 
 // -- UI COMPONENT
 import Button from '@material-ui/core/Button';
@@ -8,34 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from "@material-ui/core/Select";
 import TextField from '@material-ui/core/TextField';
 
-const useStyles = makeStyles(theme => ({
-    form: {
-        marginBottom: 20
-    },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 200,
-    },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120
-    },
-    select: {
-        width: 160
-    },
-    box: {
-        display: 'flex'
-    },
-    buttonContainer: {
-        display: 'flex'
-    },
-    button: {
-        display: 'block',
-        marginTop: 20,
-        marginRight: 5
-    }
-}));
+// -- ASSETS
+import { useStyles} from './styles'
 
 export default function Form(props) {
     const classes = useStyles();
