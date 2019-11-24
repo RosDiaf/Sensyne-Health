@@ -12,7 +12,7 @@ import Info from './info'
 import Form from './form';
 
 // -- SHARED
-import { filterByValueRange } from './shared'
+import { filterByValueRange, extractValues } from './shared'
 
 // -- ASSETS
 import { StyledTableCell, StyledTableRow, useStyles} from './styles'
@@ -141,27 +141,21 @@ export default function DataTable() {
         <TableHead>
           <TableRow>
               {state.dataKeys.map((row,i) => (
-                <StyledTableCell key={i} className={state.type === row ? classes.tableHeadFiltered : null }>{row}</StyledTableCell>
+                <StyledTableCell 
+                  key={i} 
+                  className={state.type === row ? classes.tableHeadFiltered : null }>{row}
+                </StyledTableCell>
               ))}
           </TableRow>
         </TableHead>
         <TableBody>
-        
-        {state.data.map((row,i) => (
-          <StyledTableRow key={i}>
-            <StyledTableCell component="th" scope="row">{row['Ticker']}</StyledTableCell>
-            <StyledTableCell>{row['Company']}</StyledTableCell>
-            <StyledTableCell>{row['IDEAS Score (/100)']}</StyledTableCell>
-            <StyledTableCell>{row['Value Score (/100)']}</StyledTableCell>
-            <StyledTableCell>{row['Growth Score (/100)']}</StyledTableCell>
-            <StyledTableCell>{row['Ests Momentum - EPS']}</StyledTableCell>
-            <StyledTableCell>{row['Ests Mom Change (3m) - EPS']}</StyledTableCell>
-            <StyledTableCell>{row['Quality Score (/100)']}</StyledTableCell>
-            <StyledTableCell>{row['Wave Column']}</StyledTableCell>
-            <StyledTableCell>{row['Mkt Cap $(m)']}</StyledTableCell>
-            <StyledTableCell>{row['Group']}</StyledTableCell>
-          </StyledTableRow>
-        ))}
+          {extractValues(state.data).map((array,i) => (
+            <StyledTableRow key={i}>
+              {array.map((subitem,i) => (
+                <StyledTableCell key={i}>{subitem}</StyledTableCell>
+              ))}
+            </StyledTableRow>
+          ))}
         </TableBody>
       </Table>
     </Paper>

@@ -30,11 +30,6 @@ const useStyles = makeStyles(theme => ({
     tableHeadFiltered: {
       backgroundColor: 'blue'
     },
-    infoContainer: {
-      padding: 20,
-      paddingBottom: 0,
-      textAlign: 'left'
-    },
     form: {
       marginBottom: 20
     },
@@ -60,7 +55,18 @@ const useStyles = makeStyles(theme => ({
         display: 'block',
         marginTop: 20,
         marginRight: 5
-    }
+    },
+    infoContainer: {
+        padding: 0,
+        paddingBottom: 0,
+        textAlign: 'left'
+    },
+    paper: {
+        margin: 10,
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
 }));
 // -- END STYLES
 
