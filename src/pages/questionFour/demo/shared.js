@@ -2,7 +2,7 @@
 const filterByValueRange = (obj, dataset) => {
     let items = []
     items = dataset.filter(val => {
-      return val[obj.type] >= obj.from && val[obj.type] <= obj.to
+      return items.push(val[obj.type] >= obj.from && val[obj.type] <= obj.to)
     })
     return items
 }
