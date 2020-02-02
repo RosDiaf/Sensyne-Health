@@ -15,13 +15,8 @@ export default function Info() {
                         <h1>Test code to solve</h1>
                         <p>Select category and filter <strong>from</strong> and <strong>to</strong> values you want to view <br />
                         (E.g. <strong>Mkt Cap $(m)</strong> from <strong>1</strong> to <strong>90 </strong>
-                        should return only <strong>81</strong> in the same column)<br /><br />
-                        Followings need to be fixed:
+                        should return only <strong>81</strong> in the same column)
                         </p>
-                        <ul>
-                            <li>Filter form is not working</li>
-                            <li>Allow negative values</li>
-                        </ul>
                     </div>
                 </Paper>
             </Grid>
