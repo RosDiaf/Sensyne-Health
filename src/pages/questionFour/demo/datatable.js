@@ -6,6 +6,7 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import TablePagination from '@material-ui/core/TablePagination';
 
 // -- CUSTOM COMPONENT
 import Info from './info'
@@ -117,6 +118,20 @@ export default function DataTable() {
   }
   // -- end
 
+  // -- Pagination Logic
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = event => {
+    setRowsPerPage(event.target.value);
+    setPage(0);
+  };
+  // -- end
+
   return (
     <Fragment>
     <Info/>
@@ -149,7 +164,7 @@ export default function DataTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {extractValues(state.data).map((array,i) => (
+          {extractValues(state.data).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((array,i) => (
             <StyledTableRow key={i}>
               {array.map((subitem,i) => (
                 <StyledTableCell key={i}>{subitem}</StyledTableCell>
@@ -158,6 +173,15 @@ export default function DataTable() {
           ))}
         </TableBody>
       </Table>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={state.dataKeys.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
     </Paper>
     </Fragment>
   );
